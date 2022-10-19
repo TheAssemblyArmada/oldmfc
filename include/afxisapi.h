@@ -11,7 +11,7 @@
 #ifndef __AFXISAPI_H_
 #define __AFXISAPI_H_
 
-#ifdef _UNICODE
+#ifdef _MFC_UNICODE
 #error ERROR: ISAPI does not yet support Unicode.
 #endif
 
@@ -93,31 +93,31 @@
 
 #ifdef _AFXDLL
 #ifdef _MFC_DEBUG
-	#ifdef _UNICODE
+	#ifdef _MFC_UNICODE
 		#pragma comment(lib, "MFCISUD.lib")
 	#else
 		#pragma comment(lib, "EAFXISD.lib")
 	#endif
 #else
-	#ifdef _UNICODE
+	#ifdef _MFC_UNICODE
 		#pragma comment(lib, "MFCISU.lib")
 	#else
 		#pragma comment(lib, "EAFXIS.lib")
-	#endif // _UNICODE
+	#endif // _MFC_UNICODE
 #endif // _MFC_DEBUG
 #else
 #ifdef _MFC_DEBUG
-	#ifdef _UNICODE
+	#ifdef _MFC_UNICODE
 		#pragma comment(lib, "UAFXISD.lib")
 	#else
 		#pragma comment(lib, "NAFXISD.lib")
 	#endif
 #else
-	#ifdef _UNICODE
+	#ifdef _MFC_UNICODE
 		#pragma comment(lib, "UAFXIS.lib")
 	#else
 		#pragma comment(lib, "NAFXIS.lib")
-	#endif // _UNICODE
+	#endif // _MFC_UNICODE
 #endif // _MFC_DEBUG
 #endif // _AFXDLL
 

@@ -1050,7 +1050,7 @@ _AFXWIN_INLINE int CMenu::GetMenuString(UINT nIDItem, CString& rString, UINT nFl
 		int nStringLen = ::GetMenuString(m_hMenu, nIDItem, NULL, 0, nFlags);
 		if (nStringLen > 0)
 		{
-#ifdef _UNICODE
+#ifdef _MFC_UNICODE
 			int nLen(nStringLen + 1);
 #else
 			int nLen((nStringLen + 1) << 1);

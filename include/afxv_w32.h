@@ -72,15 +72,15 @@
 #define WIN32_LEAN_AND_MEAN
 #endif
 
-#ifdef _UNICODE
+#ifdef _MFC_UNICODE
 #ifndef UNICODE
 #define UNICODE         // UNICODE is used by Windows headers
 #endif
 #endif
 
 #ifdef UNICODE
-#ifndef _UNICODE
-#define _UNICODE        // _UNICODE is used by C-runtime/MFC headers
+#ifndef _MFC_UNICODE
+#define _MFC_UNICODE        // _MFC_UNICODE is used by C-runtime/MFC headers
 #endif
 #endif
 
@@ -98,7 +98,7 @@
 #define NOTAPE
 
 #ifndef NO_ANSIUNI_ONLY
-#ifdef _UNICODE
+#ifdef _MFC_UNICODE
 #define UNICODE_ONLY
 #else
 #define ANSI_ONLY

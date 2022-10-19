@@ -191,7 +191,7 @@ public:
 
 void AFXAPI AfxBSTR2CString(CString* pStr, BSTR bstr);
 
-#if !defined(_UNICODE) && !defined(OLE2ANSI)
+#if !defined(_MFC_UNICODE) && !defined(OLE2ANSI)
 BSTR AFXAPI AfxBSTR2ABSTR(BSTR bstrW);
 LPWSTR AFXAPI AfxTaskStringA2W(LPCSTR lpa);
 LPSTR AFXAPI AfxTaskStringW2A(LPCWSTR lpw);

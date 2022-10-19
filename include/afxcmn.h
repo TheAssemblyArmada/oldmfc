@@ -88,7 +88,7 @@
 /////////////////////////////////////////////////////////////////////////////
 // CToolInfo
 
-#ifdef _UNICODE
+#ifdef _MFC_UNICODE
 class CToolInfo : public tagTOOLINFOW
 #else
 class CToolInfo : public tagTOOLINFOA

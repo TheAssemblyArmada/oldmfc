@@ -43,7 +43,7 @@ LPSTR AFXAPI AfxW2AHelper(LPSTR lpa, LPCWSTR lpw, int nChars);
 
 #define OLESTDDELIMOLE OLESTR("\\")
 
-#if defined(_UNICODE)
+#if defined(_MFC_UNICODE)
 // in these cases the default (TCHAR) is the same as OLECHAR
 	AFX_INLINE LPOLESTR TASKSTRINGT2OLE(LPOLESTR lp) { return lp; }
 	AFX_INLINE LPTSTR TASKSTRINGOLE2T(LPOLESTR lp) { return lp; }

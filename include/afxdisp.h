@@ -52,7 +52,7 @@
 
 #ifdef _AFXDLL
 	#if defined(_MFC_DEBUG) && !defined(_AFX_MONOLITHIC)
-		#ifndef _UNICODE
+		#ifndef _MFC_UNICODE
 			#pragma comment(lib, "mfco42d.lib")
 		#else
 			#pragma comment(lib, "mfco42ud.lib")
@@ -343,7 +343,7 @@ void AFXAPI AfxThrowOleDispatchException(WORD wCode, UINT nDescriptionID,
 #define VTS_BOOL            "\x0B"      // a 'BOOL'
 #define VTS_VARIANT         "\x0C"      // a 'const VARIANT&' or 'VARIANT*'
 #define VTS_UNKNOWN         "\x0D"      // an 'IUnknown*'
-#if defined(_UNICODE) || defined(OLE2ANSI)
+#if defined(_MFC_UNICODE) || defined(OLE2ANSI)
 	#define VTS_BSTR            VTS_WBSTR// an 'LPCOLESTR'
 	#define VT_BSTRT            VT_BSTR
 #else
@@ -375,7 +375,7 @@ void AFXAPI AfxThrowOleDispatchException(WORD wCode, UINT nDescriptionID,
 #define VT_MFCMARKER        0xFF        // delimits named parameters (INTERNAL USE)
 
 // variant handling (use V_BSTRT when you have ANSI BSTRs, as in DAO)
-#ifndef _UNICODE
+#ifndef _MFC_UNICODE
 	#define V_BSTRT(b)  (LPSTR)V_BSTR(b)
 #else
 	#define V_BSTRT(b)  V_BSTR(b)
@@ -898,7 +898,7 @@ LPWSTR AFXAPI AfxAllocTaskWideString(LPCSTR lpszString);
 LPSTR AFXAPI AfxAllocTaskAnsiString(LPCWSTR lpszString);
 LPSTR AFXAPI AfxAllocTaskAnsiString(LPCSTR lpszString);
 
-#ifdef _UNICODE
+#ifdef _MFC_UNICODE
 	#define AfxAllocTaskString(x) AfxAllocTaskWideString(x)
 #else
 	#define AfxAllocTaskString(x) AfxAllocTaskAnsiString(x)

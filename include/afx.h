@@ -32,7 +32,7 @@
 // Win32 libraries
 
 #ifndef _AFXDLL
-	#ifndef _UNICODE
+	#ifndef _MFC_UNICODE
 		#ifdef _MFC_DEBUG
 			#pragma comment(lib, "nafxcwd.lib")
 		#else
@@ -46,7 +46,7 @@
 		#endif
 	#endif
 #else
-	#ifndef _UNICODE
+	#ifndef _MFC_UNICODE
 		#ifdef _MFC_DEBUG
 			#pragma comment(lib, "mfc42d.lib")
 			#pragma comment(lib, "mfcs42d.lib")
@@ -410,7 +410,7 @@ public:
 	const CString& operator=(const CString& stringSrc);
 	// set string content to single character
 	const CString& operator=(TCHAR ch);
-#ifdef _UNICODE
+#ifdef _MFC_UNICODE
 	const CString& operator=(char ch);
 #endif
 	// copy string content from ANSI string (converts to TCHAR)
@@ -427,7 +427,7 @@ public:
 
 	// concatenate a single character
 	const CString& operator+=(TCHAR ch);
-#ifdef _UNICODE
+#ifdef _MFC_UNICODE
 	// concatenate an ANSI character after converting it to TCHAR
 	const CString& operator+=(char ch);
 #endif
@@ -438,7 +438,7 @@ public:
 			const CString& string2);
 	friend CString AFXAPI operator+(const CString& string, TCHAR ch);
 	friend CString AFXAPI operator+(TCHAR ch, const CString& string);
-#ifdef _UNICODE
+#ifdef _MFC_UNICODE
 	friend CString AFXAPI operator+(const CString& string, char ch);
 	friend CString AFXAPI operator+(char ch, const CString& string);
 #endif
@@ -561,7 +561,7 @@ public:
 	// load from string resource
 	BOOL LoadString(UINT nID);
 
-#ifndef _UNICODE
+#ifndef _MFC_UNICODE
 	// ANSI <-> OEM support (convert string in place)
 
 	// convert string from ANSI to OEM in-place
@@ -1509,7 +1509,7 @@ public:
 	BOOL operator<=(CTimeSpan timeSpan) const;
 	BOOL operator>=(CTimeSpan timeSpan) const;
 
-#ifdef _UNICODE
+#ifdef _MFC_UNICODE
 	// for compatibility with MFC 3.x
 	CString Format(LPCSTR pFormat) const;
 #endif
@@ -1581,7 +1581,7 @@ public:
 	CString Format(UINT nFormatID) const;
 	CString FormatGmt(UINT nFormatID) const;
 
-#ifdef _UNICODE
+#ifdef _MFC_UNICODE
 	// for compatibility with MFC 3.x
 	CString Format(LPCSTR pFormat) const;
 	CString FormatGmt(LPCSTR pFormat) const;
@@ -1657,7 +1657,7 @@ enum AfxMemDF // memory debug/diagnostic flags
 	checkAlwaysMemDF    = 0x04          // AfxCheckMemory on every alloc/free
 };
 
-#ifdef _UNICODE
+#ifdef _MFC_UNICODE
 #define AfxOutputDebugString(lpsz) \
 	do \
 	{ \
@@ -1905,7 +1905,7 @@ public:
 
 // Operations
 	CDumpContext& operator<<(LPCTSTR lpsz);
-#ifdef _UNICODE
+#ifdef _MFC_UNICODE
 	CDumpContext& operator<<(LPCSTR lpsz);  // automatically widened
 #else
 	CDumpContext& operator<<(LPCWSTR lpsz); // automatically thinned

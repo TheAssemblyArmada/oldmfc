@@ -3943,7 +3943,7 @@ public:
 
 	//plain char* version on UNICODE for source-code backwards compatibility
 	virtual void ParseParam(const TCHAR* pszParam, BOOL bFlag, BOOL bLast);
-#ifdef _UNICODE
+#ifdef _MFC_UNICODE
 	virtual void ParseParam(const char* pszParam, BOOL bFlag, BOOL bLast);
 #endif
 
@@ -3966,7 +3966,7 @@ public:
 protected:
 	void ParseParamFlag(const char* pszParam);
 	void ParseParamNotFlag(const TCHAR* pszParam);
-#ifdef _UNICODE
+#ifdef _MFC_UNICODE
 	void ParseParamNotFlag(const char* pszParam);
 #endif
 	void ParseLast(BOOL bLast);
@@ -4129,7 +4129,7 @@ public:
 	void SelectPrinter(HANDLE hDevNames, HANDLE hDevMode,
 		BOOL bFreeOld = TRUE);
 	BOOL CreatePrinterDC(CDC& dc);
-#ifndef _UNICODE
+#ifndef _MFC_UNICODE
 	BOOL GetPrinterDeviceDefaults(struct tagPDA* pPrintDlg);
 #else
 	BOOL GetPrinterDeviceDefaults(struct tagPDW* pPrintDlg);

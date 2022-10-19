@@ -46,7 +46,7 @@
 
 #ifdef _AFXDLL
 	#if defined(_MFC_DEBUG) && !defined(_AFX_MONOLITHIC)
-		#ifndef _UNICODE
+		#ifndef _MFC_UNICODE
 			#pragma comment(lib, "mfcd42d.lib")
 		#else
 			#pragma comment(lib, "mfcd42ud.lib")

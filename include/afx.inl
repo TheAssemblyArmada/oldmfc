@@ -130,7 +130,7 @@ _AFX_INLINE CString::CString(const unsigned char* lpsz)
 	{ Init(); *this = (LPCSTR)lpsz; }
 _AFX_INLINE const CString& CString::operator=(const unsigned char* lpsz)
 	{ *this = (LPCSTR)lpsz; return *this; }
-#ifdef _UNICODE
+#ifdef _MFC_UNICODE
 _AFX_INLINE const CString& CString::operator+=(char ch)
 	{ *this += (TCHAR)ch; return *this; }
 _AFX_INLINE const CString& CString::operator=(char ch)
