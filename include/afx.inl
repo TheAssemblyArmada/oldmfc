@@ -21,8 +21,8 @@ _AFX_INLINE void CObject::Serialize(CArchive&)
 	{ /* CObject does not serialize anything by default */ }
 _AFX_INLINE void* PASCAL CObject::operator new(size_t, void* p)
 	{ return p; }
-#ifndef _DEBUG
-// _DEBUG versions in afxmem.cpp
+#ifndef _MFC_DEBUG
+// _MFC_DEBUG versions in afxmem.cpp
 _AFX_INLINE void PASCAL CObject::operator delete(void* p)
 	{ ::operator delete(p); }
 #if _MSC_VER >= 1200
@@ -31,17 +31,17 @@ _AFX_INLINE void PASCAL CObject::operator delete(void* p, void*)
 #endif
 _AFX_INLINE void* PASCAL CObject::operator new(size_t nSize)
 	{ return ::operator new(nSize); }
-// _DEBUG versions in objcore.cpp
+// _MFC_DEBUG versions in objcore.cpp
 #ifdef _AFXDLL
 _AFX_INLINE void CObject::AssertValid() const
 	{ /* no asserts in release builds */ }
 _AFX_INLINE void CObject::Dump(CDumpContext&) const
 	{ /* no dumping in release builds */ }
 #endif //_AFXDLL
-#endif //!_DEBUG
+#endif //!_MFC_DEBUG
 _AFX_INLINE const CObject* AFX_CDECL AfxDynamicDownCast(CRuntimeClass* pClass, const CObject* pObject)
 	{ return (const CObject*)AfxDynamicDownCast(pClass, (CObject*)pObject); }
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 _AFX_INLINE const CObject* AFX_CDECL AfxStaticDownCast(CRuntimeClass* pClass, const CObject* pObject)
 	{ return (const CObject*)AfxStaticDownCast(pClass, (CObject*)pObject); }
 #endif
@@ -53,7 +53,7 @@ _AFX_INLINE CSimpleException::CSimpleException()
 	{ m_bInitialized = FALSE; m_bLoaded = FALSE; }
 _AFX_INLINE CSimpleException::CSimpleException(BOOL bAutoDelete)
 	: CException(bAutoDelete) { m_bInitialized = FALSE; m_bLoaded = FALSE; }
-#if !defined(_AFX_CORE_IMPL) || !defined(_AFXDLL) || defined(_DEBUG)
+#if !defined(_AFX_CORE_IMPL) || !defined(_AFXDLL) || defined(_MFC_DEBUG)
 _AFX_INLINE CSimpleException::~CSimpleException()
 	{ }
 #endif
@@ -215,7 +215,7 @@ _AFX_INLINE bool AFXAPI operator>=(LPCTSTR s1, const CString& s2)
 	{ return s2.Compare(s1) <= 0; }
 
 // CTime and CTimeSpan
-#if !defined(_AFX_CORE_IMPL) || !defined(_AFXDLL) || defined(_DEBUG)
+#if !defined(_AFX_CORE_IMPL) || !defined(_AFXDLL) || defined(_MFC_DEBUG)
 _AFX_INLINE CTimeSpan::CTimeSpan()
 	{ }
 #endif
@@ -263,13 +263,13 @@ _AFX_INLINE BOOL CTimeSpan::operator>=(CTimeSpan timeSpan) const
 	{ return m_timeSpan >= timeSpan.m_timeSpan; }
 
 
-#if !defined(_AFX_CORE_IMPL) || !defined(_AFXDLL) || defined(_DEBUG)
+#if !defined(_AFX_CORE_IMPL) || !defined(_AFXDLL) || defined(_MFC_DEBUG)
 _AFX_INLINE CTime::CTime()
 	{ }
 #endif
 _AFX_INLINE CTime::CTime(time_t time)
 	{ m_time = time; }
-#if !defined(_AFX_CORE_IMPL) || !defined(_AFXDLL) || defined(_DEBUG)
+#if !defined(_AFX_CORE_IMPL) || !defined(_AFXDLL) || defined(_MFC_DEBUG)
 _AFX_INLINE CTime::CTime(const CTime& timeSrc)
 	{ m_time = timeSrc.m_time; }
 #endif

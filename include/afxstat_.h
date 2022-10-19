@@ -25,7 +25,7 @@
 /////////////////////////////////////////////////////////////////////////////
 // _AFX_DEBUG_STATE
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 
 class _AFX_DEBUG_STATE : public CNoTrackObject
 {

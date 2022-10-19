@@ -339,7 +339,7 @@ public:
 	CRect MulDiv(int nMultiplier, int nDivisor) const;
 };
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 // Diagnostic Output
 CDumpContext& AFXAPI operator<<(CDumpContext& dc, SIZE size);
 CDumpContext& AFXAPI operator<<(CDumpContext& dc, POINT point);
@@ -419,7 +419,7 @@ public:
 // Implementation
 public:
 	virtual ~CGdiObject();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext& dc) const;
 	virtual void AssertValid() const;
 #endif
@@ -453,7 +453,7 @@ public:
 // Implementation
 public:
 	virtual ~CPen();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 };
@@ -486,7 +486,7 @@ public:
 // Implementation
 public:
 	virtual ~CBrush();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 };
@@ -516,7 +516,7 @@ public:
 // Implementation
 public:
 	virtual ~CFont();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 };
@@ -555,7 +555,7 @@ public:
 // Implementation
 public:
 	virtual ~CBitmap();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 };
@@ -992,7 +992,7 @@ public:
 // Implementation
 public:
 	virtual ~CDC();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
@@ -1026,7 +1026,7 @@ public:
 // Implementation
 public:
 	virtual ~CPaintDC();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
@@ -1047,7 +1047,7 @@ protected:
 // Implementation
 public:
 	virtual ~CClientDC();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
@@ -1068,7 +1068,7 @@ protected:
 // Implementation
 public:
 	virtual ~CWindowDC();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
@@ -1150,7 +1150,7 @@ public:
 // Implementation
 public:
 	virtual ~CMenu();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
@@ -1619,7 +1619,7 @@ public:
 // Implementation
 public:
 	virtual ~CCmdTarget();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext& dc) const;
 	virtual void AssertValid() const;
 #endif
@@ -2449,7 +2449,7 @@ protected:
 public:
 	virtual ~CWnd();
 	virtual BOOL CheckAutoCenter();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
@@ -2619,7 +2619,7 @@ protected:
 // Implementation
 public:
 	virtual ~CDialog();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
@@ -2857,7 +2857,7 @@ protected:
 
    void SetSelectionCheck( int nCheck );
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void PreSubclassWindow();
 #endif
 
@@ -3226,7 +3226,7 @@ protected:
 	static const DWORD dwDockBarMap[4][2];
 
 public:
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
@@ -3356,7 +3356,7 @@ public:
 public:
 	HWND m_hWndMDIClient;       // MDI Client window handle
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
@@ -3421,7 +3421,7 @@ protected:
 	HMENU m_hMenuShared;        // menu when we are active
 
 public:
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
@@ -3608,7 +3608,7 @@ protected:
 // Implementation
 public:
 	virtual ~CView();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext&) const;
 	virtual void AssertValid() const;
 #endif //_DEBUG
@@ -3687,7 +3687,7 @@ protected:
 
 // Implementation
 public:
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext&) const;
 	virtual void AssertValid() const;
 #endif //_DEBUG
@@ -3760,7 +3760,7 @@ protected:
 
 public:
 	virtual ~CScrollView();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext&) const;
 	virtual void AssertValid() const;
 #endif //_DEBUG
@@ -3842,7 +3842,7 @@ public:
 // Implementation
 public:
 	virtual ~CWinThread();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 	int m_nDisablePumpCount; // Diagnostic trap to detect illegal re-entrancy
@@ -4016,7 +4016,7 @@ public:
 
 public:
 	virtual ~CDocManager();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
@@ -4220,7 +4220,7 @@ public: // public for implementation access
 
 public:
 	virtual ~CWinApp();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
@@ -4352,7 +4352,7 @@ public:
 	HMENU m_hMenuInPlaceServer;
 	HACCEL m_hAccelInPlaceServer;
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext&) const;
 	virtual void AssertValid() const;
 #endif
@@ -4398,7 +4398,7 @@ public:
 		LPCTSTR lpszPathName, BOOL bMakeVisible = TRUE);
 	virtual void SetDefaultTitle(CDocument* pDocument);
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext&) const;
 	virtual void AssertValid() const;
 #endif //_DEBUG
@@ -4433,7 +4433,7 @@ public:
 		LPCTSTR lpszPathName, BOOL bMakeVisible = TRUE);
 	virtual void SetDefaultTitle(CDocument* pDocument);
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext&) const;
 	virtual void AssertValid() const;
 #endif //_DEBUG
@@ -4513,7 +4513,7 @@ public:
 	BOOL m_bAutoDelete;     // TRUE => delete document when no more views
 	BOOL m_bEmbedded;       // TRUE => document is being created by OLE
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext&) const;
 	virtual void AssertValid() const;
 #endif //_DEBUG
@@ -4552,7 +4552,7 @@ protected:
 /////////////////////////////////////////////////////////////////////////////
 // Extra diagnostic tracing options
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 
 extern AFX_DATA UINT afxTraceFlags;
 enum AfxTraceFlags
@@ -4566,7 +4566,7 @@ enum AfxTraceFlags
 	traceInternet = 64      // special Internet client trace
 };
 
-#endif // _DEBUG
+#endif // _MFC_DEBUG
 
 //////////////////////////////////////////////////////////////////////////////
 // MessageBox helpers

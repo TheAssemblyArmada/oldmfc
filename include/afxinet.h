@@ -157,7 +157,7 @@ protected:
 	BOOL m_bCallbackEnabled;
 
 public:
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 };
@@ -237,7 +237,7 @@ protected:
 	LPBYTE m_pbReadBuffer;
 	UINT m_nReadBufferBytes;
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
@@ -306,7 +306,7 @@ protected:
 	CString m_strObject;
 	CString m_strVerb;
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
@@ -358,7 +358,7 @@ public:
 	~CInternetConnection();
 	DECLARE_DYNAMIC(CInternetConnection)
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext& dc) const;
 	void AssertValid() const;
 #endif
@@ -408,7 +408,7 @@ protected:
 	CString m_strServerName;
 
 public:
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext& dc) const;
 	virtual void AssertValid() const;
 #endif
@@ -462,7 +462,7 @@ protected:
 	static const LPCTSTR szHtmlVerbs[];
 
 public:
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext& dc) const;
 	virtual void AssertValid() const;
 #endif
@@ -502,7 +502,7 @@ public:
 	virtual void Close();
 
 public:
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext& dc) const;
 	virtual void AssertValid() const;
 #endif
@@ -531,7 +531,7 @@ protected:
 	DWORD m_dwContext;
 
 public:
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext& dc) const;
 	virtual void AssertValid() const;
 #endif
@@ -587,7 +587,7 @@ protected:
 public:
 	virtual ~CGopherFile();
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
@@ -644,7 +644,7 @@ public:
 	CString GetFileURL() const;
 	CString GetRoot() const;
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext& dc) const;
 	virtual void AssertValid() const;
 #endif
@@ -668,7 +668,7 @@ public:
 // Implementation
 public:
 	~CInternetException();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 	virtual BOOL GetErrorMessage(LPTSTR lpstrError, UINT nMaxError,

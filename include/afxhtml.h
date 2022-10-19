@@ -168,7 +168,7 @@ public:
 public:
 	virtual ~CHtmlView();
 	CWnd m_wndBrowser;
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif

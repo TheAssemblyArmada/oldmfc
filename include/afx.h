@@ -33,13 +33,13 @@
 
 #ifndef _AFXDLL
 	#ifndef _UNICODE
-		#ifdef _DEBUG
+		#ifdef _MFC_DEBUG
 			#pragma comment(lib, "nafxcwd.lib")
 		#else
 			#pragma comment(lib, "nafxcw.lib")
 		#endif
 	#else
-		#ifdef _DEBUG
+		#ifdef _MFC_DEBUG
 			#pragma comment(lib, "uafxcwd.lib")
 		#else
 			#pragma comment(lib, "uafxcw.lib")
@@ -47,7 +47,7 @@
 	#endif
 #else
 	#ifndef _UNICODE
-		#ifdef _DEBUG
+		#ifdef _MFC_DEBUG
 			#pragma comment(lib, "mfc42d.lib")
 			#pragma comment(lib, "mfcs42d.lib")
 		#else
@@ -55,7 +55,7 @@
 			#pragma comment(lib, "mfcs42.lib")
 		#endif
 	#else
-		#ifdef _DEBUG
+		#ifdef _MFC_DEBUG
 			#pragma comment(lib, "mfc42ud.lib")
 			#pragma comment(lib, "mfcs42ud.lib")
 		#else
@@ -66,20 +66,20 @@
 #endif
 
 #ifdef _DLL
-	#if !defined(_AFX_NO_DEBUG_CRT) && defined(_DEBUG)
+	#if !defined(_AFX_NO_DEBUG_CRT) && defined(_MFC_DEBUG)
 		#pragma comment(lib, "msvcrtd.lib")
 	#else
 		#pragma comment(lib, "msvcrt.lib")
 	#endif
 #else
 #ifdef _MT
-	#if !defined(_AFX_NO_DEBUG_CRT) && defined(_DEBUG)
+	#if !defined(_AFX_NO_DEBUG_CRT) && defined(_MFC_DEBUG)
 		#pragma comment(lib, "libcmtd.lib")
 	#else
 		#pragma comment(lib, "libcmt.lib")
 	#endif
 #else
-	#if !defined(_AFX_NO_DEBUG_CRT) && defined(_DEBUG)
+	#if !defined(_AFX_NO_DEBUG_CRT) && defined(_MFC_DEBUG)
 		#pragma comment(lib, "libcd.lib")
 	#else
 		#pragma comment(lib, "libc.lib")
@@ -205,7 +205,7 @@ struct _AFX_FLOAT   { BYTE floatBits[sizeof(float)]; };
 /////////////////////////////////////////////////////////////////////////////
 // Diagnostic support
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 
 BOOL AFXAPI AfxAssertFailedLine(LPCSTR lpszFileName, int nLine);
 
@@ -240,7 +240,7 @@ void AFXAPI AfxDump(const CObject* pOb); // Dump an object from CodeView
 #define AFX_DUMP0(dc, sz)   dc << _T(sz)
 #define AFX_DUMP1(dc, sz, p1) dc << _T(sz) << p1
 
-#else   // _DEBUG
+#else   // _MFC_DEBUG
 
 #define ASSERT(f)          ((void)0)
 #define VERIFY(f)          ((void)(f))
@@ -277,7 +277,7 @@ inline void AFX_CDECL AfxTrace(LPCTSTR, ...) { }
 #pragma warning(disable: 4705)  // statement has no effect in optimized code
 #pragma warning(disable: 4191)  // pointer-to-function casting
 // warnings caused by normal optimizations
-#ifndef _DEBUG
+#ifndef _MFC_DEBUG
 #pragma warning(disable: 4701)  // local variable *may* be used without init
 #pragma warning(disable: 4702)  // unreachable code caused by optimizations
 #pragma warning(disable: 4791)  // loss of debugging info in release version
@@ -294,7 +294,7 @@ inline void AFX_CDECL AfxTrace(LPCTSTR, ...) { }
 #endif
 #endif //!ALL_WARNINGS
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 #define UNUSED(x)
 #else
 #define UNUSED(x) x
@@ -551,7 +551,7 @@ public:
 	void AFX_CDECL FormatMessage(UINT nFormatID, ...);
 
 	// input and output
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	friend CDumpContext& AFXAPI operator<<(CDumpContext& dc,
 				const CString& string);
 #endif
@@ -678,7 +678,7 @@ public:
 	void PASCAL operator delete(void* p, void* pPlace);
 #endif
 
-#if defined(_DEBUG) && !defined(_AFX_NO_DEBUG_CRT)
+#if defined(_MFC_DEBUG) && !defined(_AFX_NO_DEBUG_CRT)
 	// for file name/line number tracking using DEBUG_NEW
 	void* PASCAL operator new(size_t nSize, LPCSTR lpszFileName, int nLine);
 #if _MSC_VER >= 1200
@@ -703,7 +703,7 @@ public:
 // Overridables
 	virtual void Serialize(CArchive& ar);
 
-#if defined(_DEBUG) || defined(_AFXDLL)
+#if defined(_MFC_DEBUG) || defined(_AFXDLL)
 	// Diagnostic Support
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
@@ -728,7 +728,7 @@ CObject* AFX_CDECL AfxDynamicDownCast(CRuntimeClass* pClass, CObject* pObject);
 #define DYNAMIC_DOWNCAST(class_name, object) \
 	(class_name*)AfxDynamicDownCast(RUNTIME_CLASS(class_name), object)
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 const CObject* AFX_CDECL AfxStaticDownCast(CRuntimeClass* pClass, const CObject* pObject);
 CObject* AFX_CDECL AfxStaticDownCast(CRuntimeClass* pClass, CObject* pObject);
 #define STATIC_DOWNCAST(class_name, object) \
@@ -882,7 +882,7 @@ public:
 public:
 	virtual ~CException();
 	BOOL m_bAutoDelete;
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	void PASCAL operator delete(void* pbData);
 #if _MSC_VER >= 1200
 	void PASCAL operator delete(void* pbData, LPCSTR lpszFileName, int nLine);
@@ -923,7 +923,7 @@ protected:
 	TCHAR m_szMessage[128];
 	UINT m_nResourceID;
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	BOOL m_bReadyForDelete;
 #endif
 };
@@ -1128,7 +1128,7 @@ public:
 // Implementation
 public:
 	virtual ~CArchiveException();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 	virtual BOOL GetErrorMessage(LPTSTR lpszError, UINT nMaxError,
@@ -1179,7 +1179,7 @@ public:
 // Implementation
 public:
 	virtual ~CFileException();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext&) const;
 #endif
 	virtual BOOL GetErrorMessage(LPTSTR lpszError, UINT nMaxError,
@@ -1290,7 +1290,7 @@ public:
 // Implementation
 public:
 	virtual ~CFile();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
@@ -1329,7 +1329,7 @@ public:
 // Implementation
 public:
 	virtual ~CStdioFile();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	void Dump(CDumpContext& dc) const;
 #endif
 	virtual DWORD GetPosition() const;
@@ -1383,7 +1383,7 @@ protected:
 
 public:
 	virtual ~CMemFile();
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	virtual void Dump(CDumpContext& dc) const;
 	virtual void AssertValid() const;
 #endif
@@ -1463,7 +1463,7 @@ protected:
 	CString m_strRoot;
 	TCHAR m_chDirSeparator;     // not '\\' for Internet classes
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	void Dump(CDumpContext& dc) const;
 	void AssertValid() const;
 #endif
@@ -1517,7 +1517,7 @@ public:
 	CString Format(UINT nID) const;
 
 	// serialization
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	friend CDumpContext& AFXAPI operator<<(CDumpContext& dc,CTimeSpan timeSpan);
 #endif
 	friend CArchive& AFXAPI operator<<(CArchive& ar, CTimeSpan timeSpan);
@@ -1588,7 +1588,7 @@ public:
 #endif
 
 	// serialization
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	friend CDumpContext& AFXAPI operator<<(CDumpContext& dc, CTime time);
 #endif
 	friend CArchive& AFXAPI operator<<(CArchive& ar, CTime time);
@@ -1611,7 +1611,7 @@ struct CFileStatus
 	BYTE _m_padding;        // pad the structure to a WORD
 	TCHAR m_szFullName[_MAX_PATH]; // absolute path name
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 	void Dump(CDumpContext& dc) const;
 #endif
 };
@@ -1625,7 +1625,7 @@ BOOL AFXAPI AfxIsValidAddress(const void* lp,
 BOOL AFXAPI AfxIsValidString(LPCWSTR lpsz, int nLength = -1);
 BOOL AFXAPI AfxIsValidString(LPCSTR lpsz, int nLength = -1);
 
-#if defined(_DEBUG) && !defined(_AFX_NO_DEBUG_CRT)
+#if defined(_MFC_DEBUG) && !defined(_AFX_NO_DEBUG_CRT)
 
 // Memory tracking allocation
 void* AFX_CDECL operator new(size_t nSize, LPCSTR lpszFileName, int nLine);
@@ -1732,13 +1732,13 @@ void AFXAPI AfxDoForAllClasses(void (AFX_CDECL *pfn)(const CRuntimeClass* pClass
 #define AfxOutputDebugString(lpsz) ::OutputDebugString(lpsz)
 
 // diagnostic initialization
-#ifndef _DEBUG
+#ifndef _MFC_DEBUG
 #define AfxDiagnosticInit() TRUE
 #else
 BOOL AFXAPI AfxDiagnosticInit(void);
 #endif
 
-#endif // _DEBUG
+#endif // _MFC_DEBUG
 
 /////////////////////////////////////////////////////////////////////////////
 // Archives for serializing CObject data
@@ -1886,7 +1886,7 @@ protected:
 #define AFX_STACK_DUMP_TARGET_CLIPBOARD 0x0002
 #define AFX_STACK_DUMP_TARGET_BOTH          0x0003
 #define AFX_STACK_DUMP_TARGET_ODS           0x0004
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 #define AFX_STACK_DUMP_TARGET_DEFAULT       AFX_STACK_DUMP_TARGET_TRACE
 #else
 #define AFX_STACK_DUMP_TARGET_DEFAULT       AFX_STACK_DUMP_TARGET_CLIPBOARD
@@ -1937,7 +1937,7 @@ public:
 	CFile* m_pFile;
 };
 
-#ifdef _DEBUG
+#ifdef _MFC_DEBUG
 extern AFX_DATA CDumpContext afxDump;
 extern AFX_DATA BOOL afxTraceEnabled;
 #endif
@@ -1962,7 +1962,7 @@ extern AFX_DATA BOOL afxTraceEnabled;
 #ifdef _AFX_ENABLE_INLINES
 #define _AFX_INLINE AFX_INLINE
 
-#if !defined(_AFX_CORE_IMPL) || !defined(_AFXDLL) || defined(_DEBUG)
+#if !defined(_AFX_CORE_IMPL) || !defined(_AFXDLL) || defined(_MFC_DEBUG)
 #define _AFX_PUBLIC_INLINE AFX_INLINE
 #else
 #define _AFX_PUBLIC_INLINE
